@@ -2,8 +2,11 @@
 import { useEffect, useRef } from "react";
 import { UserButton } from "@clerk/nextjs";
 import CreativeEditorSDK, { Configuration } from "@cesdk/cesdk-js";
+import { useRouter } from "next/navigation";
 
 export default function EditorPage() {
+  const router = useRouter();
+
   const config: Configuration = {
     license: process.env.NEXT_PUBLIC_CESDK_LICENSE,
     userId: "guides-user",
@@ -32,7 +35,15 @@ export default function EditorPage() {
         },
       },
     },
-    callbacks: { onUpload: "local" },
+    callbacks: {
+      onUpload: "local",
+      onBack: () => {
+        router.push("/start");
+      },
+      onClose: () => {
+        router.push("/start");
+      },
+    },
   };
 
   const cesdk_container = useRef(null);
