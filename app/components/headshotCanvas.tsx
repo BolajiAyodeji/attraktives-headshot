@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, ChangeEvent } from "react";
-import CreativeEngine from "@cesdk/engine";
+import CreativeEngine, { MimeType, ExportOptions } from "@cesdk/engine";
 import { grids } from "@/app/utils/grids";
 
 const config = {
@@ -26,6 +26,7 @@ export default function BgAddPage() {
       // Create a new scene.
       let scene = engine.scene.create();
 
+      // Display multiple pages in the scene (as grid).
       for (let i = 1; i <= 6; i++) {
         // Create a page block and add it to the scene.
         const page = engine.block.create("page");
@@ -58,6 +59,28 @@ export default function BgAddPage() {
         engine.block.destroy(engine.block.getFill(block));
         engine.block.setFill(block, imageFill);
       }
+
+      // Export all pages in the scene.
+      const exportButton = document.getElementById("export_button")!;
+      exportButton.removeAttribute("disabled");
+      exportButton.onclick = async () => {
+        // Specify the image format (PNG).
+        const mimeType = "image/png" as MimeType;
+        // Specify compression level (original default for PNG is 5).
+        const options: ExportOptions = {
+          pngCompressionLevel: 9,
+        };
+
+        const pages = engine.scene.getPages();
+        pages.map(async (page) => {
+          // Download multiple blob files.
+          const blob = await engine.block.export(page, mimeType, options);
+          const anchor = document.createElement("a");
+          anchor.href = URL.createObjectURL(blob);
+          anchor.download = `attraktives-hs-${page}.png`;
+          anchor.click();
+        });
+      };
     });
   };
 
@@ -91,6 +114,12 @@ export default function BgAddPage() {
         onChange={uploadImage}
         required
       />
+      <button
+        id="export_button"
+        className="w-80 lg:w-52 px-6 py-4 mt-6 text-center bg-white text-black hover:bg-blue-200"
+      >
+        Export Pages
+      </button>
       <div
         ref={cesdk_container}
         style={{ width: "100vw", height: "100vh" }}
