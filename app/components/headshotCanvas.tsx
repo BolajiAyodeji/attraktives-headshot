@@ -116,7 +116,7 @@ export default function BgAddPage() {
         id="export_button"
         className="w-80 lg:w-52 px-6 py-4 mt-2 text-center bg-white text-black hover:bg-blue-200"
       >
-        Export Pages &nbsp; ↯
+        Download Pages &nbsp; ↯
       </button>
       <div
         ref={cesdk_container}
