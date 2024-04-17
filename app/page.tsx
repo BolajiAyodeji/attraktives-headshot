@@ -33,8 +33,8 @@ export default function Home() {
           <Image
             src="/demo-1.png"
             alt="Screenshot of the Headshot App"
-            width={900}
-            height={900}
+            width={1000}
+            height={1000}
             priority
           />
         </a>
