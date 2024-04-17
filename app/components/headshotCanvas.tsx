@@ -72,12 +72,12 @@ export default function BgAddPage() {
         };
 
         const pages = engine.scene.getPages();
-        pages.map(async (page) => {
-          // Download multiple blob files.
+        pages.map(async (page, index) => {
+          // Download multiple blob files as PNG.
           const blob = await engine.block.export(page, mimeType, options);
           const anchor = document.createElement("a");
           anchor.href = URL.createObjectURL(blob);
-          anchor.download = `attraktives-hs-${page}.png`;
+          anchor.download = `attraktives-hs-${index}.png`;
           anchor.click();
         });
       };
@@ -106,17 +106,17 @@ export default function BgAddPage() {
         accept="image/png, image/jpeg, image/jpg"
         id="upload-headshot"
         name="upload-headshot"
-        className="mt-6 text-white border-2 border-white
-        file:mr-4 file:p-2 file:border-0 
+        className="mt-6 text-white border-2 border-white rounded-full 
+        file:mr-3 file:px-3 file:py-2 file:border-0 
         file:bg-white file:text-black hover:file:bg-blue-200"
         onChange={uploadImage}
         required
       />
       <button
         id="export_button"
-        className="w-80 lg:w-52 px-6 py-4 mt-4 text-center bg-white text-black hover:bg-blue-200"
+        className="w-80 lg:w-52 px-6 py-4 mt-2 text-center bg-white text-black hover:bg-blue-200"
       >
-        Export Pages
+        Export Pages &nbsp; ↯
       </button>
       <div
         ref={cesdk_container}
