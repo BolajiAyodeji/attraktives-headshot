@@ -27,6 +27,7 @@ export default function BgRemovePage() {
         })
         .finally(() => {
           setLoading(false);
+          // todo: remove file from the FileList object.
         });
     }
   };

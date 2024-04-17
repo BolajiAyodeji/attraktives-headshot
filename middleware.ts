@@ -1,7 +1,7 @@
 import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
-  publicRoutes: ["/", "/start", "/add-bg", "/bg-remove"],
+  publicRoutes: ["/", "/start", "/bg-add", "/bg-remove"],
 });
 
 export const config = {
