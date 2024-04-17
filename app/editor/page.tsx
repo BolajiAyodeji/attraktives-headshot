@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { UserButton } from "@clerk/nextjs";
 import CreativeEditorSDK, { Configuration } from "@cesdk/cesdk-js";
 
 export default function Editor() {
@@ -48,9 +49,14 @@ export default function Editor() {
   });
 
   return (
-    <div
-      ref={cesdk_container}
-      style={{ width: "100vw", height: "100vh" }}
-    ></div>
+    <>
+      <div className="flex flex-col items-center p-2">
+        <UserButton />
+      </div>
+      <div
+        ref={cesdk_container}
+        style={{ width: "100vw", height: "100vh" }}
+      ></div>
+    </>
   );
 }
