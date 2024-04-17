@@ -36,27 +36,27 @@ export default function BgAddPage() {
         engine.block.setPositionY(page, grids[i].y);
         engine.block.appendChild(scene, page);
 
-        // Get the color fill block of the page.
-        const colorFill = engine.block.getFill(page);
-
-        // Create an graphic block with an image fill
-        // and add it to the scene's page.
+        // Create a graphic block, set the shape/size,
+        // get the color fill block of the page,
+        // add a color to the block,
+        // and add the block to the scene's page.
         const block = engine.block.create("graphic");
         engine.block.setShape(block, engine.block.createShape("rect"));
         engine.block.setFill(block, engine.block.createFill("color"));
-        engine.block.setColor(colorFill, "fill/color/value", grids[i].color);
         engine.block.setWidth(block, 500);
         engine.block.setHeight(block, 500);
+        const colorFill = engine.block.getFill(page);
+        engine.block.setColor(colorFill, "fill/color/value", grids[i].color);
         engine.block.appendChild(page, block);
 
+        // Create a block with an image fill
+        // and add it to the scene's page.
         const imageFill = engine.block.createFill("image");
         engine.block.setString(
           imageFill,
           "fill/image/imageFileURI",
           imagePath || defaultImage
         );
-
-        engine.block.destroy(engine.block.getFill(block));
         engine.block.setFill(block, imageFill);
       }
 
@@ -106,17 +106,15 @@ export default function BgAddPage() {
         accept="image/png, image/jpeg, image/jpg"
         id="upload-headshot"
         name="upload-headshot"
-        className="pt-6 text-white
-        file:mr-4 file:py-2 file:px-4
-        file:rounded-full file:border-0
-      file:bg-white file:text-black
-      hover:file:bg-blue-200"
+        className="mt-6 text-white border-2 border-white
+        file:mr-4 file:p-2 file:border-0 
+        file:bg-white file:text-black hover:file:bg-blue-200"
         onChange={uploadImage}
         required
       />
       <button
         id="export_button"
-        className="w-80 lg:w-52 px-6 py-4 mt-6 text-center bg-white text-black hover:bg-blue-200"
+        className="w-80 lg:w-52 px-6 py-4 mt-4 text-center bg-white text-black hover:bg-blue-200"
       >
         Export Pages
       </button>
