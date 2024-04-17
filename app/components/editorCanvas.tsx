@@ -61,7 +61,7 @@ export default function EditorPage() {
   return (
     <>
       <div className="flex flex-col items-center p-2">
-        <UserButton />
+        <UserButton afterSignOutUrl={"/start"} />
       </div>
       <div
         ref={cesdk_container}
