@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef, useState, ChangeEvent } from "react";
-import Image from "next/image";
 import CreativeEngine from "@cesdk/engine";
 import { grids } from "@/app/utils/grids";
 
@@ -11,9 +10,9 @@ const config = {
 };
 
 const defaultImage =
-  "https://res.cloudinary.com/bolaji/image/upload/v1713033942/imgly/headshot_ofe5m4.png";
+  "https://github.com/BolajiAyodeji/attraktives-headshot/blob/main/public/headshot.png?raw=true";
 
-export default function HeadshotPage() {
+export default function BgAddPage() {
   const [imagePath, setImagePath] = useState<string>("");
   const cesdk_container = useRef<HTMLDivElement>(null);
 
@@ -46,9 +45,7 @@ export default function HeadshotPage() {
         engine.block.setFill(block, engine.block.createFill("color"));
         engine.block.setColor(colorFill, "fill/color/value", grids[i].color);
         engine.block.setWidth(block, 500);
-        engine.block.setHeight(block, 480);
-        engine.block.setPositionX(block, 0);
-        engine.block.setPositionY(block, 20); // For some extra top padding
+        engine.block.setHeight(block, 500);
         engine.block.appendChild(page, block);
 
         const imageFill = engine.block.createFill("image");
@@ -64,10 +61,11 @@ export default function HeadshotPage() {
     });
   };
 
-  const uploadImage = (event: ChangeEvent<HTMLInputElement>): void => {
+  const uploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const file = event.target.files[0];
-      setImagePath(URL.createObjectURL(file));
+      const blobUrl = URL.createObjectURL(file);
+      setImagePath(blobUrl);
     }
   };
 
@@ -76,7 +74,7 @@ export default function HeadshotPage() {
   }, [imagePath]);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center justify-center">
       <label htmlFor="upload-headshot" className="hidden">
         Upload your image
       </label>
@@ -85,12 +83,14 @@ export default function HeadshotPage() {
         accept="image/png, image/jpeg, image/jpg"
         id="upload-headshot"
         name="upload-headshot"
-        className="p-10"
+        className="pt-6 text-white
+        file:mr-4 file:py-2 file:px-4
+        file:rounded-full file:border-0
+      file:bg-white file:text-black
+      hover:file:bg-blue-200"
         onChange={uploadImage}
+        required
       />
-      {/* {imagePath && (
-        <Image src={imagePath} alt="Preview Image" width={200} height={200} />
-      )} */}
       <div
         ref={cesdk_container}
         style={{ width: "100vw", height: "100vh" }}

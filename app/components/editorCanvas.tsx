@@ -5,6 +5,7 @@ import CreativeEditorSDK, { Configuration } from "@cesdk/cesdk-js";
 import { useRouter } from "next/navigation";
 
 export default function EditorPage() {
+  const cesdk_container = useRef(null);
   const router = useRouter();
 
   const config: Configuration = {
@@ -46,16 +47,14 @@ export default function EditorPage() {
     },
   };
 
-  const cesdk_container = useRef(null);
   useEffect(() => {
-    if (cesdk_container.current) {
-      CreativeEditorSDK.create(cesdk_container.current, config).then(
-        async (instance) => {
-          instance.addDefaultAssetSources();
-          instance.addDemoAssetSources({ sceneMode: "Design" });
-          await instance.createDesignScene();
-        }
-      );
+    const container = cesdk_container.current!;
+    if (container) {
+      CreativeEditorSDK.create(container, config).then(async (instance) => {
+        instance.addDefaultAssetSources();
+        instance.addDemoAssetSources({ sceneMode: "Design" });
+        await instance.createDesignScene();
+      });
     }
   });
 

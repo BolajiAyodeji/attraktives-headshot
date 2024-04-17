@@ -11,7 +11,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          CreativeEditor Engine/SDK
+          CreativeEditor Engine/SDK {""}
         </a>
         and{" "}
         <a
@@ -25,19 +25,13 @@ export default function Home() {
       </p>
 
       <div className="items-center lg:max-w-4xl lg:w-full my-2">
-        <a
-          href="https://nextjs.org?utm_source=bolajiayodeji.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            src="/demo-1.png"
-            alt="Screenshot of the Headshot App"
-            width={1000}
-            height={1000}
-            priority
-          />
-        </a>
+        <Image
+          src="/demo-2.png"
+          alt="Screenshot of the Headshot App"
+          width={1000}
+          height={1000}
+          priority
+        />
       </div>
 
       <div className="mb-20 lg:mb-32 grid lg:grid-cols-3 text-center lg:max-w-5xl lg:w-full lg:text-left">
