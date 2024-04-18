@@ -60,7 +60,7 @@ export default function BgAddPage() {
         engine.block.setFill(block, imageFill);
       }
 
-      // Export all pages in the scene.
+      // Export all pages on the scene.
       const exportButton = document.getElementById("export_button")!;
       exportButton.removeAttribute("disabled");
       exportButton.onclick = async () => {
@@ -72,8 +72,9 @@ export default function BgAddPage() {
         };
 
         const pages = engine.scene.getPages();
+        // Loop through all the pages on the scene.
         pages.map(async (page, index) => {
-          // Download multiple blob files as PNG.
+          // Download multiple Blob files as PNG for each page.
           const blob = await engine.block.export(page, mimeType, options);
           const anchor = document.createElement("a");
           anchor.href = URL.createObjectURL(blob);
