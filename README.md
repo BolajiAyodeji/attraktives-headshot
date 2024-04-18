@@ -87,6 +87,7 @@ To run this application locally, kindly follow the steps below:
 
 ## Repo Stats Summary
 
+![GitHub Repository Statistics](https://repobeats.axiom.co/api/embed/71444e09ae3b50f07bda15bd645f7f5fc4e1c647.svg)
 
 ## Contributors Guide
 
