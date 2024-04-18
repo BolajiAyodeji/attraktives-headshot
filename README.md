@@ -33,9 +33,9 @@ A web application that enables users to remove the background of an image and cr
 ## Apps
 
 There are three apps in this project, namely:
-1. Remove Image Background (`/bg-remove`) — can be accessed with this [live link](https://attraktives-hs.vercel.app/bg-remove) (doesn't require a license).
-2. Add Image Background Color (`/bg-add`) — can be tested only in development using the demo license.
-3. General Design Editor (`/editor`)  — can be tested only in development using the demo license.
+1. Remove Image Background (`/bg-remove`): can be accessed with this [live link](https://attraktives-hs.vercel.app/bg-remove) (doesn't require a license).
+2. Add Image Background Color (`/bg-add`): can be tested only in development using the demo license.
+3. General Design Editor (`/editor`): can be tested only in development using the demo license.
 
 ## Features and Todos
  
@@ -64,16 +64,16 @@ There are three apps in this project, namely:
 | `/app/layout.tsx`                  | Shared UI for fonts and metadata configuration. |
 | `/app/page.tsx`                    | Home page (`/`).                                |
 | `/utils/grid.ts`                   | Utility file for the grid layout options.       |
-| `middleware.ts`                    | Handle protected pages before processing all requests      |
+| `middleware.ts`                    | Handle protected pages before processing all requests.     |
 
 ## Getting Started
 
 To run this application locally, kindly follow the steps below:
 
-1. Rename the `.env.example` file to `.env.local` and fill in the required environment variables (leave the others as they are).
-    * `NEXT_PUBLIC_CESDK_LICENSE` — IMG.LY CE.SDK license (sign up for one or get a demo [here](https://img.ly/docs/cesdk/engine/quickstart)).
-    * `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` — Clerk publishable API key (sign up and copy this from the [dashboard](https://dashboard.clerk.com)).
-    * `CLERK_SECRET_KEY` — Clerk secret API key (sign up and copy this from the [dashboard](https://dashboard.clerk.com)).
+1. Rename the `.env.example` file to `.env.local` and fill in the required environment variables (leave the pre-filled ones as they are).
+    * `NEXT_PUBLIC_CESDK_LICENSE`: IMG.LY CE.SDK license (sign up for one or get a demo [here](https://img.ly/docs/cesdk/engine/quickstart)).
+    * `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`: Clerk publishable API key (sign up and copy this from the [dashboard](https://dashboard.clerk.com)).
+    * `CLERK_SECRET_KEY`: Clerk secret API key (sign up and copy this from the [dashboard](https://dashboard.clerk.com)).
 
 3. Install all required dependencies with the `npm install` command (or use `yarn` / `pnpm`).
 
