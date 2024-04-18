@@ -34,7 +34,7 @@ A web application that enables users to remove the background of an image and cr
 
 There are three apps in this project, namely:
 1. Remove Image Background (`/bg-remove`) — can be accessed with this [live link](https://attraktives-hs.vercel.app/bg-remove) (doesn't require a license).
-2. Add Image Background Color (`bg-add`) — can be tested only in development using the demo license.
+2. Add Image Background Color (`/bg-add`) — can be tested only in development using the demo license.
 3. General Design Editor (`/editor`)  — can be tested only in development using the demo license.
 
 ## Features and Todos
@@ -45,7 +45,7 @@ There are three apps in this project, namely:
 * [x] Create and edit designs with a Canva-like editor.
 * [x] Authentication and protected pages.
 * [ ] Show processing progress during background removal.
-* [ ] Make the background removal faster for initial use (maybe use the small onnx model).
+* [ ] Make the background removal faster for initial use (maybe use the smaller `onnx` model).
 * [ ] Cleanup logic for multiple background removal requests in one window session.
 * [ ] Add background-removal plugin to the editor.
 
@@ -77,7 +77,7 @@ To run this application locally, kindly follow the steps below:
 
 3. Install all required dependencies with the `npm install` command (or use `yarn` / `pnpm`).
 
-4. Run the development server with the command `npm run dev`.
+4. Run the development server with the `npm run dev` command.
 
 5. Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
 
