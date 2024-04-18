@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { IBM_Plex_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
@@ -60,7 +61,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={ibm.className}>{children}</body>
+        <body className={ibm.className}>
+          {children}
+          <Analytics />
+        </body>
       </html>
     </ClerkProvider>
   );
