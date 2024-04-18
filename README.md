@@ -37,8 +37,6 @@ There are three apps in this project, namely:
 2. Add Image Background Color (`bg-add`) — can be tested only in development using the demo license.
 3. General Design Editor (`/editor`)  — can be tested only in development using the demo license.
 
-[![](./public/demo-5.png)](https://attraktives-hs.vercel.app/start)
-
 ## Features and Todos
  
 * [x] Remove background from an image ([try it live](https://attraktives-hs.vercel.app/bg-remove)).
