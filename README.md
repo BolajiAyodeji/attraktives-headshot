@@ -14,14 +14,14 @@ A web application that enables users to remove the background of an image and cr
 
 > [!TIP]
 >
-> Kindly read [this comprehensive tutorial](#) (TBA) to learn how to build this.
+> Kindly read [this comprehensive tutorial](#) (TBA) to learn how to build editing apps using IMGLY’s [CE.SDK](https://img.ly/docs/cesdk?utm_source=https://bolajiayodeji.com) Engine and SDK.
 
 ---
 
 ## Table of Contents
 
 * [Apps](#apps)
-* [Features](#features)
+* [Features and Todos](#features-and-todos)
 * [Important Files and Folders](#important-files-and-folders)
 * [Getting Started](#getting-started)
 * [Repo Stats Summary](#repo-stats-summary)
@@ -32,24 +32,22 @@ A web application that enables users to remove the background of an image and cr
 
 ## Apps
 
-Generally, there are three apps in this project, namely:
-1. Remove Image Background (`/bg-remove`) — can be accessed in the [live link](https://attraktives-hs.vercel.app/bg-remove) (it doesn't require a license).
-2. Add Image Background Color (`bg-add`) — can tested in development using the demo license.
-3. General Design Editor (`/editor`)  — can tested in development using the demo license.
+There are three apps in this project, namely:
+1. Remove Image Background (`/bg-remove`) — can be accessed with this [live link](https://attraktives-hs.vercel.app/bg-remove) (doesn't require a license).
+2. Add Image Background Color (`bg-add`) — can be tested only in development using the demo license.
+3. General Design Editor (`/editor`)  — can be tested only in development using the demo license.
 
-## Features
+[![](./public/demo-5.png)](https://attraktives-hs.vercel.app/start)
+
+## Features and Todos
  
 * [x] Remove background from an image ([try it live](https://attraktives-hs.vercel.app/bg-remove)).
 * [x] Add background options to a transparent image.
 * [x] Create and edit designs with a Canva-like editor.
 * [x] Authentication and protected pages.
 * [ ] Show processing progress during background removal.
-
-<div align="center">
-
-![](./public/flow.svg)
-
-</div>
+* [ ] Cleanup logic for multiple background removal requests in one window session.
+* [ ] Add background-removal plugin to the editor.
 
 ## Important Files and Folders
 
@@ -66,7 +64,7 @@ Generally, there are three apps in this project, namely:
 | `/app/layout.tsx`                  | Shared UI for fonts and metadata configuration. |
 | `/app/page.tsx`                    | Home page (`/`).                                |
 | `/utils/grid.ts`                   | Utility file for the grid layout options.       |
-| `middleware.ts`                    | Run some logic before a request is processed.   |
+| `middleware.ts`                    | Handle protected pages before processing all requests      |
 
 ## Getting Started
 
