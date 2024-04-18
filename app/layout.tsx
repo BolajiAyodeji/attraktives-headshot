@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Attraktives Headshot",
   },
   description:
-    "A simple web application that enables users to craft an attractive profile picture for social media platforms.",
+    "Remove the background of an image and craft an attractive profile pictures for social media.",
   twitter: {
     card: "summary_large_image",
     creator: "@iambolajiayo",
