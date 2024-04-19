@@ -10,7 +10,7 @@ const config = {
 };
 
 const defaultImage =
-  "https://github.com/BolajiAyodeji/attraktives-headshot/blob/main/public/headshot.png?raw=true";
+  "https://raw.githubusercontent.com/BolajiAyodeji/attraktives-headshot/main/public/headshot.png";
 
 export default function BgAddPage() {
   const [imagePath, setImagePath] = useState<string>("");
