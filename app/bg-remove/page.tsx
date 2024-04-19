@@ -1,13 +1,22 @@
 "use client";
 import { useState, ChangeEvent } from "react";
 import Image from "next/image";
-import imglyRemoveBackground from "@imgly/background-removal";
+import imglyRemoveBackground, {
+  preload,
+  Config,
+} from "@imgly/background-removal";
 
-const loadingGif = "/loading.gif";
+// Download all model assets for faster loading.
+preload().then(() => {
+  console.log("Assets preloading successful!");
+});
+
+type stringOrNumber = string | number;
 
 export default function BgRemovePage() {
   const [initialImagePath, setInitialImagePath] = useState<string>("");
   const [finalImagePath, setFinalImagePath] = useState<string>("");
+  const [progress, setProgress] = useState<stringOrNumber[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const uploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +26,13 @@ export default function BgRemovePage() {
       const file = event.target.files[0];
       const initialBlobUrl = URL.createObjectURL(file);
       setInitialImagePath(initialBlobUrl);
-      imglyRemoveBackground(initialBlobUrl)
+
+      const config: Config = {
+        progress: (key, current, total) => {
+          setProgress([key, current, total]);
+        },
+      };
+      imglyRemoveBackground(initialBlobUrl, config)
         .then((blobUrl) => {
           const finalBlobUrl = URL.createObjectURL(blobUrl);
           setFinalImagePath(finalBlobUrl);
@@ -59,7 +74,7 @@ export default function BgRemovePage() {
             className="border-2 border-white"
           />
           <Image
-            src={!finalImagePath ? loadingGif : finalImagePath}
+            src={!finalImagePath ? "/loading.gif" : finalImagePath}
             alt="Preview Final Image"
             width={400}
             height={400}
@@ -69,10 +84,16 @@ export default function BgRemovePage() {
       )}
 
       {initialImagePath && !finalImagePath && (
-        <p>
-          Hang on :). Removing image background
-          <span className="inline-block ml-2 animate-ping">...</span>
-        </p>
+        <>
+          <p>Hang on; this will take a few seconds :‑).</p>
+          {progress.length > 0 && (
+            <p className="mt-6">
+              Downloading: [<span className="text-blue-500">{progress[0]}</span>
+              ] ({progress[1]} of {progress[2]})
+              <span className="inline-block ml-2 animate-ping">...</span>
+            </p>
+          )}
+        </>
       )}
 
       {finalImagePath && (
