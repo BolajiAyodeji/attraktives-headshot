@@ -5,9 +5,8 @@ import imglyRemoveBackground, {
   preload,
   Config,
 } from "@imgly/background-removal";
-import { Progress } from "@/app/types";
+import { DownloadProgress } from "@/app/types";
 
-// Preload all model assets for faster loading.
 preload().then(() => {
   console.log("Assets preloading successful!");
 });
@@ -15,12 +14,12 @@ preload().then(() => {
 export default function BgRemovePage() {
   const [initialImagePath, setInitialImagePath] = useState<string>("");
   const [finalImagePath, setFinalImagePath] = useState<string>("");
-  const [progress, setProgress] = useState<Progress>();
+  const [downloadProgress, setDownloadProgress] = useState<DownloadProgress>();
   const [loading, setLoading] = useState<boolean>(false);
 
   const config: Config = {
     progress: (key, current, total) => {
-      setProgress({
+      setDownloadProgress({
         key: key.replace("fetch:/", ""),
         current,
         total,
@@ -31,7 +30,8 @@ export default function BgRemovePage() {
   const uploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
     setLoading(true);
     setFinalImagePath("");
-    if (event.target.files) {
+
+    if (event.timeStamp < Date.now() - 1000 && event.target.files) {
       const file = event.target.files[0];
       const initialBlobUrl = URL.createObjectURL(file);
       setInitialImagePath(initialBlobUrl);
@@ -46,7 +46,7 @@ export default function BgRemovePage() {
         })
         .finally(() => {
           setLoading(false);
-          // todo: remove file from the FileList object.
+          event.target.value = "";
         });
     }
   };
@@ -89,15 +89,15 @@ export default function BgRemovePage() {
 
       {initialImagePath && !finalImagePath && (
         <>
-          <p>
+          <p className="text-center mx-4">
             Hang on; this will take quite some seconds if this is your first
             time here :‑).
           </p>
-          {progress && (
-            <p className="mt-6">
+          {downloadProgress && (
+            <p className="mt-6 text-center mx-4">
               Downloading: [
-              <span className="text-blue-500">{progress.key}</span>] (
-              {progress.current} of {progress.total})
+              <span className="text-blue-500">{downloadProgress.key}</span>] (
+              {downloadProgress.current} of {downloadProgress.total})
               <span className="inline-block ml-2 animate-ping">...</span>
             </p>
           )}

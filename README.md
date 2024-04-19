@@ -40,13 +40,12 @@ There are three apps in this project, namely:
 
 ## Features and Todos
 
-* [x] Remove background from an image ([try it live](https://attraktives-hs.vercel.app/bg-remove)).
+* [x] Remove the background from an image ([try it live](https://attraktives-hs.vercel.app/bg-remove)).
 * [x] The above uses the [ONNX model](https://onnx.ai) and WASM files hosted by IMG.LY.
 * [x] Add background color options to a transparent image.
 * [x] Create and edit designs with a Canva-like editor.
 * [x] Authentication and protected pages.
 * [x] Show download progress (background removal).
-* [ ] Handle canceled uploads properly when the current image is still displayed (background removal).
 * [ ] Add background-removal plugin to the editor.
 
 ## Important Files and Folders

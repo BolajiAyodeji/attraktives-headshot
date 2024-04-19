@@ -1,6 +1,6 @@
-import { gridLayout } from "@/app/types";
+import { GridLayout } from "@/app/types";
 
-export const grids: gridLayout = {
+export const grids: GridLayout = {
   1: { x: -800, y: -50, color: { r: 1.0, g: 0.0, b: 0.0, a: 1.0 } },
   2: { x: -250, y: -50, color: { r: 0.0, g: 0.0, b: 1.0, a: 1.0 } },
   3: { x: 300, y: -50, color: { r: 0.0, g: 1.0, b: 0.0, a: 1.0 } },

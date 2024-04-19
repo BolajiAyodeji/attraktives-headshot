@@ -1,10 +1,10 @@
-export interface Progress {
+export interface DownloadProgress {
   key: string;
   current: number;
   total: number;
 }
 
-export interface gridLayout {
+export interface GridLayout {
   [key: number]: {
     x: number;
     y: number;
