@@ -86,7 +86,7 @@ export default function BgAddPage() {
   };
 
   const uploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
+    if (event.timeStamp < Date.now() - 1000 && event.target.files) {
       const file = event.target.files[0];
       const blobUrl = URL.createObjectURL(file);
       setImagePath(blobUrl);
@@ -111,7 +111,6 @@ export default function BgAddPage() {
         file:mr-3 file:px-3 file:py-2 file:border-0 file:rounded-full
         file:bg-white file:text-black hover:file:bg-blue-200"
         onChange={uploadImage}
-        required
       />
       <button
         id="export_button"
