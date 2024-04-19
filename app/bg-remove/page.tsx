@@ -62,7 +62,7 @@ export default function BgRemovePage() {
         id="upload-image"
         name="upload-image"
         className="text-white border-2 border-white rounded-full 
-        file:mr-3 file:px-3 file:py-2 file:border-0 
+        file:mr-3 file:px-3 file:py-2 file:border-0 file:rounded-full 
       file:bg-white file:text-black hover:file:bg-blue-200"
         onChange={uploadImage}
         disabled={loading}

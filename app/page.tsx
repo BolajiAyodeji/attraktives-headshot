@@ -85,7 +85,7 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="fixed bottom-0 w-full py-4 bg-black">
+      <div className="fixed bottom-0 w-full py-4 bg-gray-900">
         <hr className="my-4 lg:my-0 border-gray-600 pb-0 lg:pb-4" />
         <p className="text-center">
           &copy;{" "}
