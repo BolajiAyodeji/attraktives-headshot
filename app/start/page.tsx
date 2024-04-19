@@ -24,7 +24,7 @@ export default function StartPage() {
         Apps marked with &quot;DEV&quot; can only be tested in development for
         now. You can learn how to setup the code locally in{" "}
         <a
-          href="https://github.com/BolajiAyodeji/attraktives-headshot"
+          href="https://github.com/BolajiAyodeji/attraktives-headshot?tab=readme-ov-file#getting-started"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:underline decoration-wavy"

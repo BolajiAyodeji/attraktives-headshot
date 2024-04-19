@@ -4,8 +4,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8">
       <p className="text-center text-lg border-b border-gray-600 pb-6 pt-8 backdrop-blur-2xl lg:rounded-xl lg:border lg:p-4">
-        A simple web application that enables you to craft an attractive profile
-        picture for social media platforms built with {""}
+        An image background removal app and demo design editor built with {""}
         <a
           href="https://img.ly/docs/cesdk?utm_source=bolajiayodeji.com"
           target="_blank"
@@ -24,12 +23,12 @@ export default function Home() {
         .
       </p>
 
-      <div className="items-center lg:max-w-4xl lg:w-full my-2">
+      <div className="flex items-center justify-center lg:max-w-4xl lg:w-full my-2">
         <Image
-          src="/demo-2.png"
+          src="/demo-1.png"
           alt="Screenshot of the Headshot App"
-          width={1000}
-          height={1000}
+          width={700}
+          height={700}
           priority
         />
       </div>
@@ -42,11 +41,11 @@ export default function Home() {
           <h2 className={`mb-3 text-2xl font-semibold text-blue-500`}>
             Get Started{" "}
             <span className="ml-4 animate-bounce inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              ☞
+              ▻
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the headshot background editor or general editor.
+            Explore the image background removal app or design editor apps.
           </p>
         </a>
         <a
@@ -58,11 +57,12 @@ export default function Home() {
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Read Tutorial{" "}
             <span className="ml-4 inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              ☞
+              ▻
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn how this demo was built by reading a comprehensive blogpost.
+            Learn how this project was built by reading a comprehensive blog
+            post.
           </p>
         </a>
 
@@ -75,12 +75,12 @@ export default function Home() {
           <h2 className={`mb-3 text-2xl font-semibold`}>
             OSS Code{" "}
             <span className="ml-4 inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              ☞
+              ▻
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the public code of this demo on GitHub and maybe contribute
-            to it.
+            Explore the public code of this project on GitHub and maybe
+            contribute to it.
           </p>
         </a>
       </div>
