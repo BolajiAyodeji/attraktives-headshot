@@ -78,7 +78,7 @@ export default function BgAddPage() {
           const blob = await engine.block.export(page, mimeType, options);
           const anchor = document.createElement("a");
           anchor.href = URL.createObjectURL(blob);
-          anchor.download = `attraktives-hs-${index}.png`;
+          anchor.download = `attraktives-hs-${index}`;
           anchor.click();
         });
       };
