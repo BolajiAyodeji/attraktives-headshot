@@ -33,27 +33,27 @@ A web application that enables users to remove the background of an image and cr
 ## Apps
 
 There are three apps in this project, namely:
+
 1. Remove Image Background (`/bg-remove`): can be accessed with this [live link](https://attraktives-hs.vercel.app/bg-remove) (doesn't require a license).
 2. Add Image Background Color (`/bg-add`): can be tested only in development using the demo license.
 3. General Design Editor (`/editor`): can be tested only in development using the demo license.
 
 ## Features and Todos
- 
+
 * [x] Remove background from an image ([try it live](https://attraktives-hs.vercel.app/bg-remove)).
 * [x] The above uses the [ONNX model](https://onnx.ai) and WASM files hosted by IMG.LY.
 * [x] Add background color options to a transparent image.
 * [x] Create and edit designs with a Canva-like editor.
 * [x] Authentication and protected pages.
-* [ ] Show processing progress (background removal).
+* [x] Show download progress (background removal).
 * [ ] Handle canceled uploads properly when the current image is still displayed (background removal).
-* [ ] Make the background removal faster for initial use (maybe use the smaller `onnx` model).
 * [ ] Add background-removal plugin to the editor.
 
 ## Important Files and Folders
 
 | **Path**                           | **Description**                                 |
 | ---------------------------------- | ----------------------------------------------- |
-| `.env.example`                     | Example file with all the required environment variables.  | 
+| `.env.example`                     | Example file with all the required environment variables.  |
 | `/app/auth`                        | `/auth/sign-in` and `auth/sign-up` authentication pages    |
 | `/app/bg-add/page.tsx`             | Page for the background removal app.            |
 | `/app/bg-remove/page.tsx`          | Page for the background color add app.          |
