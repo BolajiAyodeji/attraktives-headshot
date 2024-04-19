@@ -5,19 +5,28 @@ import imglyRemoveBackground, {
   preload,
   Config,
 } from "@imgly/background-removal";
+import { Progress } from "@/app/types";
 
-// Download all model assets for faster loading.
+// Preload all model assets for faster loading.
 preload().then(() => {
   console.log("Assets preloading successful!");
 });
 
-type stringOrNumber = string | number;
-
 export default function BgRemovePage() {
   const [initialImagePath, setInitialImagePath] = useState<string>("");
   const [finalImagePath, setFinalImagePath] = useState<string>("");
-  const [progress, setProgress] = useState<stringOrNumber[]>([]);
+  const [progress, setProgress] = useState<Progress>();
   const [loading, setLoading] = useState<boolean>(false);
+
+  const config: Config = {
+    progress: (key, current, total) => {
+      setProgress({
+        key: key.replace("fetch:/", ""),
+        current,
+        total,
+      });
+    },
+  };
 
   const uploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
     setLoading(true);
@@ -27,11 +36,6 @@ export default function BgRemovePage() {
       const initialBlobUrl = URL.createObjectURL(file);
       setInitialImagePath(initialBlobUrl);
 
-      const config: Config = {
-        progress: (key, current, total) => {
-          setProgress([key, current, total]);
-        },
-      };
       imglyRemoveBackground(initialBlobUrl, config)
         .then((blobUrl) => {
           const finalBlobUrl = URL.createObjectURL(blobUrl);
@@ -85,11 +89,15 @@ export default function BgRemovePage() {
 
       {initialImagePath && !finalImagePath && (
         <>
-          <p>Hang on; this will take a few seconds :‑).</p>
-          {progress.length > 0 && (
+          <p>
+            Hang on; this will take quite some seconds if this is your first
+            time here :‑).
+          </p>
+          {progress && (
             <p className="mt-6">
-              Downloading: [<span className="text-blue-500">{progress[0]}</span>
-              ] ({progress[1]} of {progress[2]})
+              Downloading: [
+              <span className="text-blue-500">{progress.key}</span>] (
+              {progress.current} of {progress.total})
               <span className="inline-block ml-2 animate-ping">...</span>
             </p>
           )}

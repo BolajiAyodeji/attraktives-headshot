@@ -1,10 +1,4 @@
-interface gridLayout {
-  [key: number]: {
-    x: number;
-    y: number;
-    color: { r: number; g: number; b: number; a: number };
-  };
-}
+import { gridLayout } from "@/app/types";
 
 export const grids: gridLayout = {
   1: { x: -800, y: -50, color: { r: 1.0, g: 0.0, b: 0.0, a: 1.0 } },
