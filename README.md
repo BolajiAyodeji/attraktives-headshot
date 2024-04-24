@@ -53,7 +53,7 @@ There are three apps in this project, namely:
 | **Path**                           | **Description**                                 |
 | ---------------------------------- | ----------------------------------------------- |
 | `.env.example`                     | Example file with all the required environment variables.  |
-| `/app/auth`                        | `/auth/sign-in` and `auth/sign-up` authentication pages    |
+| `/app/auth`                        | `/auth/sign-in` and `auth/sign-up` authentication pages.    |
 | `/app/bg-add/page.tsx`             | Page for the background removal app.            |
 | `/app/bg-remove/page.tsx`          | Page for the background color add app.          |
 | `/app/editor/page.tsx`             | Page for the general design editor app.         |
