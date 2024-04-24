@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState, ChangeEvent } from "react";
+import { useRef, useEffect, useState, ChangeEvent } from "react";
 import CreativeEngine, { MimeType, ExportOptions } from "@cesdk/engine";
 import { grids } from "@/app/utils/grids";
 
@@ -14,9 +14,10 @@ const defaultImage =
 
 export default function BgAddPage() {
   const [imagePath, setImagePath] = useState<string>("");
+  const [currentFile, setCurrentFile] = useState<File | null>(null);
   const cesdk_container = useRef<HTMLDivElement>(null);
 
-  const initializeCESDK = (imagePath: string) => {
+  const initializeCESDK = () => {
     CreativeEngine.init(config).then((engine) => {
       // Append the engine element to the container.
       const container = cesdk_container.current!;
@@ -86,16 +87,17 @@ export default function BgAddPage() {
   };
 
   const uploadImage = async (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.timeStamp < Date.now() - 1000 && event.target.files) {
+    if (event.target.files) {
       const file = event.target.files[0];
-      const blobUrl = URL.createObjectURL(file);
+      setCurrentFile(file);
+      const blobUrl = URL.createObjectURL(file || currentFile);
       setImagePath(blobUrl);
     }
   };
 
   useEffect(() => {
-    initializeCESDK(imagePath);
-  }, [imagePath]);
+    initializeCESDK();
+  });
 
   return (
     <div className="flex flex-col items-center justify-center">
