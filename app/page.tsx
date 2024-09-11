@@ -4,15 +4,16 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8">
       <p className="text-center text-lg border-b border-gray-600 pb-6 pt-8 backdrop-blur-2xl lg:rounded-xl lg:border lg:p-4">
-        An image background removal app and demo design editor built with {""}
+        An image background removal app and demo design editor built with
+        Nextjs, {""}
         <a
           href="https://img.ly/docs/cesdk?utm_source=bolajiayodeji.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          CreativeEditor Engine/SDK {""}
+          CreativeEditor SDK Engine
         </a>
-        and{" "}
+        , and{" "}
         <a
           href="https://clerk.dev?utm_source=bolajiayodeji.com"
           target="_blank"
