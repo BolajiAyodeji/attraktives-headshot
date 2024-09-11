@@ -14,7 +14,7 @@ A web application that enables users to remove the background of an image and cr
 
 > [!TIP]
 >
-> Kindly read [this comprehensive tutorial](#) (TBA) to learn how to build editing apps using IMGLY’s [CE.SDK](https://img.ly/docs/cesdk?utm_source=https://bolajiayodeji.com) Engine and SDK.
+> Kindly read [this comprehensive tutorial](https://blog.bolajiayodeji.com/how-to-build-design-editing-apps-using-nextjs-clerk-and-imglys-cesdk-engine) to learn how to build editing apps using IMGLY’s [CE.SDK](https://img.ly/docs/cesdk?utm_source=https://bolajiayodeji.com) Engine and SDK.
 
 ---
 
