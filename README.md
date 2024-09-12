@@ -2,7 +2,7 @@
 
 <img src="./public/ahs.svg" width="100" height="100" />
 
-A web application that enables users to remove the background of an image and craft attractive profile pictures for social media platforms.
+A web application that enables users to remove the background of an image and craft attractive profile pictures for social media platforms + other image editor demos.
 
 ---
 
@@ -14,7 +14,7 @@ A web application that enables users to remove the background of an image and cr
 
 > [!TIP]
 >
-> Kindly read [this comprehensive tutorial](https://blog.bolajiayodeji.com/how-to-build-design-editing-apps-using-nextjs-clerk-and-imglys-cesdk-engine) to learn how to build editing apps using IMGLY’s [CE.SDK](https://img.ly/docs/cesdk?utm_source=https://bolajiayodeji.com) Engine and SDK.
+> Kindly read [this comprehensive tutorial](https://blog.bolajiayodeji.com/how-to-build-design-editing-apps-using-nextjs-clerk-and-imglys-cesdk-engine) to learn how to build editing apps using IMGLY’s CE.SDK Engine.
 
 ---
 
