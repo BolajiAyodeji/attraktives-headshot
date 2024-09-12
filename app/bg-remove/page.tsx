@@ -1,10 +1,7 @@
 "use client";
 import { useState, ChangeEvent } from "react";
 import Image from "next/image";
-import imglyRemoveBackground, {
-  preload,
-  Config,
-} from "@imgly/background-removal";
+import removeBackground, { preload, Config } from "@imgly/background-removal";
 import { DownloadProgress } from "@/app/types";
 
 preload().then(() => {
@@ -36,7 +33,7 @@ export default function BgRemovePage() {
       const initialBlobUrl = URL.createObjectURL(file);
       setInitialImagePath(initialBlobUrl);
 
-      imglyRemoveBackground(initialBlobUrl, config)
+      removeBackground(initialBlobUrl, config)
         .then((blobUrl) => {
           const finalBlobUrl = URL.createObjectURL(blobUrl);
           setFinalImagePath(finalBlobUrl);
