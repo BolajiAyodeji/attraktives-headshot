@@ -14,7 +14,7 @@
     "@clerk/nextjs": "^5.5.2",
     "@imgly/background-removal": "^1.5.5",
     "@vercel/analytics": "^1.2.2",
-    "next": "14.2.0",
+    "next": "14.2.12",
     "react": "^18",
     "react-dom": "^18"
   },
