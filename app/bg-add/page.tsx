@@ -1,10 +1,5 @@
-import dynamic from "next/dynamic";
+import CreativeEditor from "../components/CreativeEditorClient";
 
-const CreativeEditorSDKWithNoSSR = dynamic(
-  () => import("../components/headshotCanvas"),
-  {
-    ssr: false,
-  }
-);
-
-export default CreativeEditorSDKWithNoSSR;
+export default function Page() {
+  return <CreativeEditor />;
+}
