@@ -12,6 +12,7 @@
     "@cesdk/cesdk-js": "^1.24.0",
     "@cesdk/engine": "^1.24.0",
     "@clerk/nextjs": "^5.7.5",
+    "@clerk/react": "^6.1.2",
     "@imgly/background-removal": "^1.5.5",
     "@vercel/analytics": "^1.2.2",
     "next": "16.1.7",

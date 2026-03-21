@@ -1,7 +1,7 @@
 "use client";
 import { useState, ChangeEvent } from "react";
 import Image from "next/image";
-import removeBackground, { preload, Config } from "@imgly/background-removal";
+import { removeBackground, preload, Config } from "@imgly/background-removal";
 import { DownloadProgress } from "@/app/types";
 
 preload().then(() => {
