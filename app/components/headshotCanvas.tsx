@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect, useState, ChangeEvent } from "react";
-import CreativeEngine, { MimeType, ExportOptions } from "@cesdk/engine";
+import CreativeEngine, { ExportOptions } from "@cesdk/engine";
 import { grids } from "@/app/utils/grids";
 
 const config = {
@@ -65,8 +65,6 @@ export default function BgAddPage() {
       const exportButton = document.getElementById("export_button")!;
       exportButton.removeAttribute("disabled");
       exportButton.onclick = async () => {
-        // Specify the image format (PNG).
-        const mimeType = "image/png" as MimeType;
         // Specify compression level (original default for PNG is 5).
         const options: ExportOptions = {
           pngCompressionLevel: 9,
@@ -76,7 +74,7 @@ export default function BgAddPage() {
         // Loop through all the pages on the scene.
         pages.map(async (page, index) => {
           // Download multiple Blob files as PNG for each page.
-          const blob = await engine.block.export(page, mimeType, options);
+          const blob = await engine.block.export(page, "image/png", options);
           const anchor = document.createElement("a");
           anchor.href = URL.createObjectURL(blob);
           anchor.download = `attraktives-hs-${index}`;
