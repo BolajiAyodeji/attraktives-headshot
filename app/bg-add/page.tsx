@@ -1,4 +1,4 @@
-import CreativeEditor from "../components/CreativeEditorClient";
+import CreativeEditor from "../components/creativeHeadshotClient";
 
 export default function Page() {
   return <CreativeEditor />;

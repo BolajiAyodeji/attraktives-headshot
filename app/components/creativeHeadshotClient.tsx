@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-const CreativeEditorSDKWithNoSSR = dynamic(() => import("./editorCanvas"), {
+const CreativeEditorSDKWithNoSSR = dynamic(() => import("./headshotCanvas"), {
   ssr: false,
 });
 
